@@ -1,52 +1,38 @@
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
-
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+        <div class="form-item-box">
+            <label for="name">{{ __('Name') }}</label>
+            <input type="text" class="form-item" id="name" name="name" placeholder="山田太郎" required autocomplete="name">
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
-
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+        <div class="form-item-box">
+            <label for="name_kana">氏名(カナ)</label>
+            <input type="text" class="form-item" id="name_kana" name="name_kana" placeholder="ヤマダタロウ" required autocomplete="name_kana">
+            <x-input-error :messages="$errors->get('name_kana')" class="mt-2" />
+        </div>
+        <div class="form-item-box">
+            <label for="email">{{ __('Email Address') }}</label>
+            <input type="email" class="form-item" id="email" name="email" placeholder="sample@gmail.com" required autocomplete="email">
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
+        <div class="form-item-box">
+            <label for="phone_number">{{ __('Phone Number') }}</label>
+            <input type="tel" class="form-item" id="phone_number" name="phone_number" placeholder="sample@gmail.com" required  autocomplete="phone_number">
+            <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
+        </div>
+        <div class="form-item-box">
+            <label for="password">{{ __('Password') }}</label>
+            <input type="password" class="form-item" id="password" name="password" placeholder="12345678" required autocomplete="password">
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
+        <div class="form-item-box">
+            <label for="password_confirmation">{{ __('Confirm Password') }}</label>
+            <input type="password" class="form-item" id="password_confirmation" name="password_confirmation" placeholder="12345678" required autocomplete="password_confirmation">
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ml-4">
-                {{ __('Register') }}
-            </x-primary-button>
+        <div align="center">
+            <button type="submit" class="btn btn-primary mt-2 fw-bolder">{{ __('Register') }}</button>
         </div>
     </form>
 </x-guest-layout>

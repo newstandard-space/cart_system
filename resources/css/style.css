@@ -1,0 +1,204 @@
+body {
+    box-sizing: border-box;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    width: 100%;
+}
+
+/* ログイン画面 */
+.logo-title a {
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #000;
+}
+
+.card {
+    width: 700px;
+    padding: 30px;
+}
+
+.form-item-box label {
+    display: block;
+}
+
+.form-item {
+    margin: 10px 0;
+    width: 100%;
+}
+
+/* header */
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    color: crimson;
+    background-color: #F6F6F6;
+    box-shadow: 0px 0.1px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+header .site-title a {
+    text-decoration: none;
+    color: crimson;
+    font-weight: 500;
+}
+
+header .header-menu {
+    display: flex;
+}
+
+header .header-separater {
+    margin: 0 10px;
+}
+
+header .header-cart-icon:hover {
+    cursor: pointer;
+}
+
+/* main */
+h1 {
+    text-align: center;
+    margin: 50px 0;
+    color: crimson;
+}
+
+main .main-container {
+    min-height: calc(100vh - 47px);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main .item-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+main .item-list .item-detail {
+    width: 350px;
+}
+
+main .item-list .item-detail .item-image img {
+    height: 350px;
+    width: 350px;
+    object-fit: cover;
+}
+
+main .item-list .item-detail .item-image img:hover {
+    box-shadow: 0 0 5px #fff, 0 0 5px #ccc, 0 0 1px #aaa;
+    transform: translate(-1px, -1px);
+    transition-duration: 0.3s;
+}
+
+main .item-list .item-detail .item-description p {
+    margin: 0;
+}
+
+main .item-list .item-detail div {
+    margin: 10px 0;
+}
+
+@media screen and (max-width:1050px) {
+    main .main-container {
+        width: 100%;
+    }
+
+    main .item-list {
+        justify-content: space-between;
+    }
+
+    main .item-list .item-detail {
+        width: 50%;
+    }
+
+    main .item-list .item-detail .item-image {
+        object-fit: cover;
+        position: relative;
+    }
+
+    main .item-list .item-detail .item-image::before {
+        content: "";
+        display: block;
+        padding-top: 100%;
+    }
+
+    main .item-list .item-detail .item-image img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+@media screen and (max-width:700px) {
+    header {
+        font-size: 1rem;
+    }
+
+    main .main-container {
+        width: 100%;
+    }
+
+    main .item-list {
+        justify-content: center;
+    }
+
+    main .item-list .item-detail {
+        width: 100%;
+    }
+
+    main .item-list .item-detail .item-image {
+        object-fit: cover;
+        position: relative;
+    }
+
+    main .item-list .item-detail .item-image::before {
+        content: "";
+        display: block;
+        padding-top: 100%;
+    }
+
+    main .item-list .item-detail .item-image img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+/* detail */
+main .item-detail-2 {
+    display: flex;
+}
+
+main .item-image-2 {
+    width: 500px;
+    height: 500px;
+}
+
+main .item-image-2 img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+}
+
+main .item-description-2 {
+    width: 300px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+main .item-description-2 .item-description-detail-2 {
+    background-color: #ccc;
+}
