@@ -13,10 +13,12 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 import { createApp } from "vue";
 import App from "./App.vue";
+import ProductDetail from "./components/ProductDetail.vue";
+import Modal from "./components/Modal.vue";
 
-const app = createApp(App);
-
-app.mount("#app");
+const product_detail = createApp(ProductDetail);
+product_detail.component('modal', Modal)
+product_detail.mount("#ProductDetail");
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

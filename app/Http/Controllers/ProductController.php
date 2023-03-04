@@ -12,6 +12,7 @@ use App\Models\Item;
 use App\Models\Product;
 use App\Models\ItemImage;
 
+
 class ProductController extends Controller
 {
     public function index()
@@ -23,18 +24,45 @@ class ProductController extends Controller
 
     public function detail($id)
     {
-        $products = DB::table('products')
+        return view('product/detail', compact('id'));
+    }
+
+    public function getProductDetailInfo($id)
+    {
+        $item = Item::find($id);
+
+        $color_sizes = DB::table('products')
         ->select(DB::raw('color, group_concat(size order by size) as sizes'))
         ->where('item_id', '=', $id)->groupBy('color')
-        ->get();
+        ->get()->mapWithKeys(function ($obj) {
+            return [$obj->color => (object)(explode(',', $obj->sizes))];
+        });
 
-        $item = Item::find($id);
-        
-        $item_images = DB::table('item_images')
+        $color_images = DB::table('item_images')
         ->select(DB::raw('color, group_concat(path) as pathes'))
         ->where('item_id', '=', $id)->groupBy('color', 'item_id')
-        ->get();
+        ->get()->mapWithKeys(function ($obj) {
+            return [$obj->color => (object)(explode(',', $obj->pathes))];
+        });
 
-        return view('product/detail', compact('item', 'products', 'item_images'));
+        return ['item' => $item, 'color_sizes' => $color_sizes, 'color_images'=> $color_images];
+    }
+
+    public function addCart(Request $request)
+    {
+        $id = $request->id;
+        $color = $request->color;
+        $size = $request->size;
+
+        $cart = [
+            'id' => $id,
+            'color' => $color,
+            'size' => $size
+        ];
+
+        $request->session()->put('cart', $cart);
+
+        return ;
+
     }
 }

@@ -1,6 +1,6 @@
 body {
     box-sizing: border-box;
-    font-size: 18px;
+    font-size: 16px;
     margin: 0;
     padding: 0;
     background-color: #fff;
@@ -36,15 +36,15 @@ header {
     left: 0;
     display: flex;
     justify-content: space-between;
-    padding: 10px;
-    color: crimson;
+    padding: 10px 100px;
     background-color: #F6F6F6;
     box-shadow: 0px 0.1px 2px 0px rgba(0, 0, 0, 0.5);
 }
 
 header .site-title a {
     text-decoration: none;
-    color: crimson;
+    color: #000;
+    font-size: 1.2rem;
     font-weight: 500;
 }
 
@@ -53,7 +53,7 @@ header .header-menu {
 }
 
 header .header-separater {
-    margin: 0 10px;
+    margin: 0 20px;
 }
 
 header .header-cart-icon:hover {
@@ -64,10 +64,10 @@ header .header-cart-icon:hover {
 h1 {
     text-align: center;
     margin: 50px 0;
-    color: crimson;
+    color: #000;
 }
 
-main .main-container {
+main .product-container {
     min-height: calc(100vh - 47px);
     max-width: 1200px;
     margin-left: auto;
@@ -105,7 +105,11 @@ main .item-list .item-detail div {
 }
 
 @media screen and (max-width:1050px) {
-    main .main-container {
+    header {
+        padding: 10px;
+    }
+
+    main .product-container {
         width: 100%;
     }
 
@@ -143,7 +147,7 @@ main .item-list .item-detail div {
         font-size: 1rem;
     }
 
-    main .main-container {
+    main .product-container {
         width: 100%;
     }
 
@@ -177,28 +181,199 @@ main .item-list .item-detail div {
 }
 
 /* detail */
-main .item-detail-2 {
+main .product-detail-container {
+    min-height: calc(100vh - 47px);
+    max-width: 1360px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
+    margin-top: 50px;
 }
 
-main .item-image-2 {
-    width: 500px;
-    height: 500px;
-}
-
-main .item-image-2 img {
-    width: 500px;
-    height: 500px;
-    object-fit: cover;
-}
-
-main .item-description-2 {
-    width: 300px;
+main .product-detail-image-area {
+    width: 910px;
     display: flex;
-    flex-flow: column;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
-main .item-description-2 .item-description-detail-2 {
-    background-color: #ccc;
+main .product-detail-image {
+    width: 450px;
+    margin-bottom: 10px;
+}
+
+main .product-detail-image img:hover {
+    cursor: not-allowed;
+}
+
+main .product-detail-image:nth-child(2N + 1) {
+    margin-right: 10px;
+}
+
+main .product-detail-info {
+    width: 420px;
+    margin-left: 30px;
+    padding-top: 20px;
+}
+
+/* color */
+
+main .color-image-box {
+    display: flex;
+}
+
+main .color-image-box img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+main .color-image-box img:hover {
+    cursor: pointer;
+}
+
+/* size */
+main .size-info {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+main .size-box {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+main .size-area {
+    width: 130px;
+    height: 50px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+main .size-area:nth-child(3N) {
+    margin-right: 0;
+}
+
+main .size-area button {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+}
+
+/* cart button */
+
+main .cart-button-box {
+    width: 410px;
+    height: 60px;
+}
+
+main .cart-button-box button {
+    background-color: #000;
+    height: 100%;
+    width: 100%;
+    border-radius: 30px;
+    color: #fff;
+}
+
+main .cart-button-box button:hover {
+    opacity: .6;
+}
+
+main .product-detail-container .active {
+    border: 1px solid #000;
+}
+
+/* modal */
+#overlay {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 48px;
+}
+
+#content {
+    z-index: 2;
+    width: 390px;
+    height: 290px;
+    padding: 1em;
+    background-color: #F6F6F6;
+    margin-right: 20px;
+}
+
+.batsu {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 30px;
+}
+
+.batsu::before, .batsu::after {
+    /* 共通設定 */
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1.5px;
+    /* 棒の幅（太さ） */
+    height: 16px;
+    /* 棒の高さ */
+    background: #333;
+}
+
+.batsu::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.batsu::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.modal-content-upper-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-content-middle-box {
+    display: flex;
+}
+
+.modal-content-middle-box p{
+    margin-bottom: 5px;
+    font-size: 0.8rem;
+}
+
+.modal-content-middle-box img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.modal-content-middle-info {
+    margin-left: 20px;
+}
+
+.modal-content-bottom-box {
+    width: 340px;
+    height: 60px;
+    background-color: #000;
+    margin-top: 25px;
+    border-radius: 30px;
+}
+
+.modal-content-bottom-box button{
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-weight: 100;
 }
