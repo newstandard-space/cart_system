@@ -16,7 +16,11 @@
 </head>
 
 <body>
+    @if (request()->is('*checkout*') )
+    @include('body.only_title_header')
+    @else
     @include('body.header')
+    @endif
     <main>
         @yield('content')
     </main>

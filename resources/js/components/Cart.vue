@@ -8,29 +8,25 @@
       <div class="checkout-step-separator">
         <i class="bi bi-chevron-right"></i>
       </div>
-      <div class="checkout-step-area">
-        <p class="checkout-step-num">02</p>
-        <p>ご購入の手続き</p>
-      </div>
       <div class="checkout-step-separator">
         <i class="bi bi-chevron-right"></i>
       </div>
       <div class="checkout-step-area">
-        <p class="checkout-step-num">03</p>
+        <p class="checkout-step-num">02</p>
         <p>ご注文の確認</p>
       </div>
       <div class="checkout-step-separator">
         <i class="bi bi-chevron-right"></i>
       </div>
       <div class="checkout-step-area">
-        <p class="checkout-step-num">04</p>
+        <p class="checkout-step-num">03</p>
         <p>ご注文完了</p>
       </div>
     </div>
 
     <h3>カート</h3>
     <div class="mt-3">
-      <div v-if="Object.keys(cart)" class="cart-box-area">
+      <div v-if="cart.length" class="cart-box-area">
         <div class="cart-all-box">
           <div v-for="(cart_item, index) in cart" :key="index" class="cart-box">
             <div class="cart-item-image">
@@ -84,7 +80,7 @@
             </div>
             <div class="cart-box-info-item-4 mt-4">
               <a href="/checkout">
-                <button>ご購入の手続き</button>
+                <button>ご購入手続きへ進む</button>
               </a>
             </div>
           </div>
