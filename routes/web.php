@@ -27,6 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/cart/addCart', [CartController::class, 'addCart']);
     Route::get('/cart/getCartInfo', [CartController::class, 'getCartInfo']);
     Route::delete('/cart/deleteCartItem', [CartController::class, 'deleteCartItem']);
+    Route::get('/cart/countCartItem', [CartController::class, 'countCartItem']);
 });
 
 Route::middleware('auth')->group(function () {

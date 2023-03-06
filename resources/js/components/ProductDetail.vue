@@ -157,9 +157,12 @@ const openModal = () => {
     .put("/cart/addCart", {
       item_id: item_id,
       color: now_color.value,
-      size: now_size.value
+      size: now_size.value,
     })
     .then((res) => {
+      let header_component = document.getElementById("header_component");
+      let counter = header_component.innerText;
+      header_component.innerText = parseInt(counter) + 1;
     })
     .catch((err) => {
       console.log("generate/失敗", err);

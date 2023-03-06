@@ -59,6 +59,24 @@ header .header-separater {
 header .cart-icon-link {
     text-decoration: none;
     color: #000;
+    position: relative;
+}
+
+header .cart-icon-link div {
+    text-align: center;
+    vertical-align: center;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: -7px;
+    left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #595959;
+    font-size: 0.8rem;
+    color: #fff;
 }
 
 header .header-cart-icon:hover {

@@ -16,6 +16,7 @@ import App from "./App.vue";
 import ProductDetail from "./components/ProductDetail.vue";
 import Modal from "./components/Modal.vue";
 import Cart from "./components/Cart.vue";
+import Header from "./components/Header.vue";
 
 const product_detail = createApp(ProductDetail);
 product_detail.component('modal', Modal);
@@ -24,7 +25,8 @@ product_detail.mount("#ProductDetail");
 const cart = createApp(Cart);
 cart.mount("#Cart");
 
-
+const header_component = createApp(Header);
+header_component.mount("#header_component");
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

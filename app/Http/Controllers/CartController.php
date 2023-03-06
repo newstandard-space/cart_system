@@ -62,4 +62,14 @@ class CartController extends Controller
 
         return redirect()->route('cart');
     }
+
+    public function countCartItem()
+    {
+        $cart = Cart::where('user_id', Auth::id())->get();
+        $counter = 0;
+        $cart->each(function($obj) use(&$counter) {
+            $counter += $obj['amount'];
+        });
+        return ['count' => $counter];
+    }
 }
