@@ -4,7 +4,8 @@
       <div class="modal-content-upper-box">
         <div class="pt-1">
           <p>
-            <i class="bi bi-check-circle-fill text-success mr-2"></i>カートに追加済み
+            <i class="bi bi-check-circle-fill text-success mr-2"></i
+            >カートに追加済み
           </p>
         </div>
         <div>
@@ -26,7 +27,9 @@
         </div>
       </div>
       <div class="modal-content-bottom-box">
-        <button class="go-to-cart-button">カートの確認</button>
+        <a href="/cart">
+          <button type="submit" class="go-to-cart-button">カートの確認</button>
+        </a>
       </div>
     </div>
   </div>
@@ -55,5 +58,5 @@ const stopEvent = (e) => {
   event.stopPropagation();
 };
 
-console.log(props.color_image_pairs)
+console.log(props.color_image_pairs);
 </script>

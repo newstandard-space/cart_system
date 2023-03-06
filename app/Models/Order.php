@@ -9,17 +9,17 @@ class Order extends Model
 {
     use HasFactory;
 
-    public function order_detail()
+    public function order_details()
     {
         return $this->hasMany(OrderDetail::class);
     }
 
-    public function order_purchase_address()
+    public function order_purchase_addresses()
     {
         return $this->hasOne(OrderPurchaseAddress::class);
     }
 
-    public function order_shipping_address()
+    public function order_shipping_addresses()
     {
         return $this->hasOne(OrderShippingAddress::class);
     }

@@ -6,7 +6,9 @@
     </div>
     <div class="header-menu">
         <div>
-            <i class="bi bi-cart header-cart-icon"></i>
+            <a href="/cart" class="cart-icon-link">
+                <i class="bi bi-cart header-cart-icon"></i>
+            </a>
         </div>
         <div class="header-separater"> | </div>
         <div>

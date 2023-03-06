@@ -47,22 +47,4 @@ class ProductController extends Controller
 
         return ['item' => $item, 'color_sizes' => $color_sizes, 'color_images'=> $color_images];
     }
-
-    public function addCart(Request $request)
-    {
-        $id = $request->id;
-        $color = $request->color;
-        $size = $request->size;
-
-        $cart = [
-            'id' => $id,
-            'color' => $color,
-            'size' => $size
-        ];
-
-        $request->session()->put('cart', $cart);
-
-        return ;
-
-    }
 }

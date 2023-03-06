@@ -9,7 +9,7 @@ class Item extends Model
 {
     use HasFactory;
 
-    public function item_stock()
+    public function item_stocks()
     {
         return $this->hasOne(ItemStock::class);
     }

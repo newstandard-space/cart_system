@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +19,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth')->group(function () {
     Route::get('/', [ProductController::class, 'index'])->name('product');
     Route::get('/getProductDetailInfo/{id}', [ProductController::class, 'getProductDetailInfo']);
-    Route::put('/addCart', [ProductController::class, 'addCart']);
     Route::get('/product/{id}', [ProductController::class, 'detail'])->name('product.detail');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/cart', [CartController::class, 'index'])->name('cart');
+    Route::put('/cart/addCart', [CartController::class, 'addCart']);
+    Route::get('/cart/getCartInfo', [CartController::class, 'getCartInfo']);
+    Route::delete('/cart/deleteCartItem', [CartController::class, 'deleteCartItem']);
 });
 
 Route::middleware('auth')->group(function () {

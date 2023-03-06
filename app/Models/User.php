@@ -12,14 +12,19 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    public function user_address()
+    public function user_addresses()
     {
         return $this->hasOne(UserAddress::class);
     }
 
-    public function user_shipping_address()
+    public function user_shipping_addresses()
     {
         return $this->hasMany(UserShippingAddress::class);
+    }
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
     }
 
     /**

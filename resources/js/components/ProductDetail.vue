@@ -29,7 +29,7 @@
       <div v-if="Object.keys(item)" class="product-detail-info">
         <h3>{{ item.name }}</h3>
         <p v-if="item.description" class="text-muted">
-          {{ item.description.substring(0, item.description.indexOf("\n")) }}
+          {{ item.description }}
         </p>
         <p class="mb-0">{{ item_price }}</p>
         <p class="text-muted">(税込)</p>
@@ -154,8 +154,8 @@ const openModal = () => {
   }
 
   axios
-    .put("/addCart", {
-      id: item_id.value,
+    .put("/cart/addCart", {
+      item_id: item_id,
       color: now_color.value,
       size: now_size.value
     })
