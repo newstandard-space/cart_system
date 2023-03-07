@@ -23,4 +23,13 @@ class Order extends Model
     {
         return $this->hasOne(OrderShippingAddress::class);
     }
+
+    protected $fillable = [
+        'order_custom_id',
+        'user_id',
+        'payment_method_id',
+        'total_price',
+        'shipping_fee',
+        'handling_fee',
+    ];
 }

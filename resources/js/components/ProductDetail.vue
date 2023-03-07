@@ -105,7 +105,7 @@ const getProductDetailInfo = () => {
       save_color_images = res.data.color_images;
       save_item_sizes = res.data.color_sizes;
 
-      item_price.value = formatter.format(item.value.price);
+      item_price.value = formatter.format((item.value.price) * 1.1);
 
       color_images.value = getFirstEntry(save_color_images);
       color_sizes.value = getFirstEntry(save_item_sizes);

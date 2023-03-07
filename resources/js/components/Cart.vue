@@ -101,7 +101,7 @@ csrf_token.value = document.querySelector('meta[name="csrf-token"]').content;
 const getCartSubtotal = (cart) => {
   let subtotal = 0;
   for (let obj of cart) {
-    subtotal += obj.price * obj.amount;
+    subtotal += (obj.price * obj.amount) * 1.1;
   }
   return formatter.format(subtotal);
 };
@@ -112,7 +112,7 @@ let formatter = new Intl.NumberFormat("ja-JP", {
 });
 
 const formatToNumber = (price, amount) => {
-  return formatter.format(price * amount);
+  return formatter.format((price * amount) * 1.1);
 };
 
 const getCartInfo = () => {

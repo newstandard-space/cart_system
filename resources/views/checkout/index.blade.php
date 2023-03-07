@@ -66,7 +66,7 @@
                                 <p class="text-muted">最短で3/10<span class="order-delivery-day"> 木 </span>にお届け</p>
                             </div>
                             <div>
-                                <button class="text-primary">変更</button>
+                                <span class="text-primary cursor-pointer">変更</span>
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
                                 </p>
                             </div>
                             <div>
-                                ¥ {{ number_format($cart_item->price * $cart_item->amount) }}
+                                ¥ {{ number_format(($cart_item->price * $cart_item->amount) * 1.1) }}
                             </div>
                         </div>
                     </div>

@@ -14,7 +14,7 @@
                     <p>{{ $item->name }}</p>
                     <p class="text-muted">{!! nl2br(e($item->description)) !!}</p>
                     <br>
-                    <p>¥{{ number_format($item->price) }}</p>
+                    <p>¥{{ number_format(($item->price) * 1.1) }}</p>
                     <p class="text-muted">(税込)</p>
             </div>
         </div>

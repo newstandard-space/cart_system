@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    @if (request()->is('*checkout*') )
+    @if ( request()->path() == 'checkout' )
     @include('body.only_title_header')
     @else
     @include('body.header')
