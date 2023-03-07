@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\UserAddress;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -36,6 +37,9 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'phone_number' => ['required', 'numeric', 'digits_between:10,13', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'postal_code' => ['required', 'numeric', 'digits:7'],
+            'address_1' => ['required', 'string', 'max:255'],
+            'address_2' => ['required', 'string', 'max:255'],
         ]);
 
         $user = User::create([
@@ -47,6 +51,13 @@ class RegisteredUserController extends Controller
         ]);
 
         event(new Registered($user));
+
+        UserAddress::create([
+            'user_id' => $user->id,
+            'postal_code' => $request->postal_code,
+            'address_1' => $request->address_1,
+            'address_2' => $request->address_2,
+        ]);
 
         Auth::login($user);
 

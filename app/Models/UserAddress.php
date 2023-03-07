@@ -13,4 +13,13 @@ class UserAddress extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    protected $fillable = [
+        'user_id',
+        'postal_code',
+        'prefecture_id',
+        'address_1',
+        'address_2',
+        'address_3',
+    ];
 }

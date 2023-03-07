@@ -6,17 +6,14 @@
     </div>
     <div class="header-menu">
         <div>
-            <a href="/cart" class="cart-icon-link">
+            <a href="/cart" class="header-link">
                 <i class="bi bi-cart header-cart-icon"></i>
                 <div id="header_component"></div>
             </a>
         </div>
         <div class="header-separater"> | </div>
         <div>
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit">ログアウト</button>
-            </form>
+            <a href="{{ route('profile.edit') }}" class="header-link">マイアカウント</a>
         </div>
     </div>
 </header>

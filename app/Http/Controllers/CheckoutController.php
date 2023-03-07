@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Cart;
 use App\Models\User;
+use App\Models\UserAddress;
 
 class CheckoutController extends Controller
 {
@@ -22,8 +23,15 @@ class CheckoutController extends Controller
             $subtotal += $cart_item->price * $cart_item->amount;
         }
 
+        $user_address = UserAddress::where('user_id', Auth::id())->first();
+
         $user = Auth::user();
 
-        return view('checkout.index', compact('user', 'subtotal', 'cart'));
+        return view('checkout.index', compact('user', 'subtotal', 'cart', 'user_address'));
+    }
+
+    public function create(Request $request)
+    {
+        dd($request);
     }
 }

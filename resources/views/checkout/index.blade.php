@@ -10,9 +10,6 @@
             <div class="checkout-step-separator">
                 <i class="bi bi-chevron-right"></i>
             </div>
-            <div class="checkout-step-separator">
-                <i class="bi bi-chevron-right"></i>
-            </div>
             <div class="checkout-step-area active">
                 <p class="checkout-step-num">02</p>
                 <p>ご注文の確認</p>
@@ -27,83 +24,68 @@
         </div>
         <h3 class="mb-0">ご注文の確認</h3>
         <div class="checkout-area">
-            <div style="width: 600px; font-size: 14px;" class="mb-8">
-                <form id="checkout-button" action="#">
+            <form id="checkout-button" method="POST" action="{{ route('checkout.create') }}">
+                @csrf
+                <div style="width: 600px; font-size: 14px;" class="mb-8">
                     <div class="checkout-info-area">
                         <div class="checkout-info-title">
                             注文者情報
                         </div>
                         <div>
-                            <div>
-                                <input name="name" type="text" placeholder="名前" class="input_body" required>
-                            </div>
-                            <div>
-                                <input name="kana" type="text" placeholder="名前（カナ）" class="input_body" required>
-                            </div>
-                            <div>
-                                <input name="postal_code" type="text" placeholder="郵便番号" class="input_body" required>
-                            </div>
-                            <div>
-                                <input name="address_1" type="text" placeholder="住所" class="input_body" required>
-                            </div>
-                            <div>
-                                <input name="address_2" type="text" placeholder="住所（番地以降）" class="input_body" required>
-                            </div>
-                            <div>
-                                <input name="phone_number" type="text" placeholder="電話番号" class="input_body" required>
-                            </div>
-                            <div>
-                                <input name="email" type="text" placeholder="メールアドレス" class="input_body" required>
-                            </div>
-                            <div>
-                                <input name="email_confirmation" type="text" placeholder="メールアドレス再確認" class="input_body mb-0" required>
+                            <p class="fw-bolder mb-0">{{ $user->name }}</p>
+                            <div style="font-size: 0.8rem;">
+                                <p class="mb-0">〒 {{ $user_address->postal_code }}</p>
+                                <p class="mb-0">{{ $user_address->address_1 . $user_address->address_2 }}</p>
+                                <p class="mb-0">{{ $user->phone_number }}</p>
+                                <p class="mb-0">{{ $user->email }}</p>
                             </div>
                         </div>
-                </form>
-            </div>
-            <div class="checkout-info-area">
-                <div class="checkout-info-title">
-                    配送先情報
-                </div>
-                <div class="">
-                    <div class="mb-3">
-                        <input type="radio" checked name="shipping_address_info" value="1" class="mr-2"><span
-                            class="fw-bolder">注文者情報と同じ</span>
                     </div>
-                    <div>
-                        <input type="radio" name="shipping_address_info" value="1" class="mr-2">注文者情報と同じ
+                    <div class="checkout-info-area">
+                        <div class="checkout-info-title">
+                            配送先情報
+                        </div>
+                        <div class="">
+                            <div class="mb-3">
+                                <input type="radio" checked name="shipping_address_type" value="1" class="mr-2"><span
+                                    class="fw-bolder">注文者情報で受け取る</span>
+                            </div>
+                            <div>
+                                <input type="radio" name="shipping_address_type" value="2" class="mr-2">別の住所で受け取る
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="checkout-info-area">
-                <div class="checkout-info-title">
-                    お届け日時
-                </div>
-                <div class="d-flex justify-content-between" style="width: 80%;">
-                    <div>
-                        <p class="fw-bolder mb-1">指定なし</p>
-                        <input type="hidden" name="delivery_date">
-                        <p class="text-muted">最短で3/9<span class="order-delivery-day"> 木 </span>にお届け</p>
+                    <div class="checkout-info-area">
+                        <div class="checkout-info-title">
+                            お届け日時
+                        </div>
+                        <div class="d-flex justify-content-between" style="width: 80%;">
+                            <div>
+                                <p class="fw-bolder mb-1">指定なし</p>
+                                <input type="hidden" name="delivery_date" value="2023-03-10">
+                                <p class="text-muted">最短で3/10<span class="order-delivery-day"> 木 </span>にお届け</p>
+                            </div>
+                            <div>
+                                <button class="text-primary">変更</button>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <button class="text-primary">変更</button>
+                    <div class="checkout-info-area">
+                        <div class="checkout-info-title">
+                            決済方法
+                        </div>
+                        <div class="">
+                            <div class="mb-3">
+                                <input type="radio" checked name="payment_method_type" value="1" class="mr-2"><span
+                                    class="fw-bolder">代金引換</span>
+                            </div>
+                            <div>
+                                <input type="radio" name="payment_method_type" value="2" class="mr-2">GMO後払い
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="checkout-info-area">
-                <div class="checkout-info-title">
-                    決済方法
-                </div>
-                <div class="">
-                    <div class="mb-3">
-                        <input type="radio" checked name="payment_method_info" value="1" class="mr-2"><span
-                            class="fw-bolder">代金引換</span>
-                    </div>
-                    <div>
-                        <input type="radio" name="payment_method_info" value="2" class="mr-2">GMO後払い
-                    </div>
-                </div>
-            </div>
+            </form>
+
             <div class="checkout-info-area">
                 <div class="checkout-item-info-box">
                     <p>注文商品</p>

@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
+    Route::post('/checkout/create', [CheckoutController::class, 'create'])->name('checkout.create');
 });
 
 Route::middleware('auth')->group(function () {

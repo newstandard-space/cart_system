@@ -8,9 +8,6 @@
       <div class="checkout-step-separator">
         <i class="bi bi-chevron-right"></i>
       </div>
-      <div class="checkout-step-separator">
-        <i class="bi bi-chevron-right"></i>
-      </div>
       <div class="checkout-step-area">
         <p class="checkout-step-num">02</p>
         <p>ご注文の確認</p>

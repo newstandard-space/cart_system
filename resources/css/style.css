@@ -59,13 +59,13 @@ header .header-separater {
     margin: 0 20px;
 }
 
-header .cart-icon-link {
+header .header-link {
     text-decoration: none;
     color: #000;
     position: relative;
 }
 
-header .cart-icon-link div {
+header .header-link div {
     text-align: center;
     vertical-align: center;
     width: 16px;

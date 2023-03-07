@@ -18,8 +18,11 @@ class ProfileUpdateRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'name_kana' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'phone_number' => ['required', 'numeric', 'digits_between:10,13', 'unique:'.User::class],
+            'email' => ['required', 'confirmed', 'string', 'email', 'max:255'],
+            'phone_number' => ['required', 'numeric', 'digits_between:10,13'],
+            'postal_code' => ['required', 'numeric', 'digits:7'],
+            'address_1' => ['required', 'string', 'max:255'],
+            'address_2' => ['required', 'string', 'max:255'],
         ];
     }
 }
