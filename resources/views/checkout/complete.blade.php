@@ -11,14 +11,14 @@
                 <div class="checkout-step-separator">
                     <i class="bi bi-chevron-right"></i>
                 </div>
-                <div class="checkout-step-area active">
+                <div class="checkout-step-area">
                     <p class="checkout-step-num">02</p>
                     <p>ご注文の確認</p>
                 </div>
                 <div class="checkout-step-separator">
                     <i class="bi bi-chevron-right"></i>
                 </div>
-                <div class="checkout-step-area">
+                <div class="checkout-step-area active">
                     <p class="checkout-step-num">03</p>
                     <p>ご注文完了</p>
                 </div>
@@ -35,7 +35,7 @@
                     <p class="mb-0">ご注文番号</p>
                 </div>
                 <div>
-                    <p>fafdafd</p>
+                    <p>{{ $order_custom_id }}</p>
                 </div>
             </div>
             <div>
